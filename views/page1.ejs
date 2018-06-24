@@ -1,0 +1,45 @@
+<% include partials/header %>
+
+    <table align="center" style="width:80%" id="table1">
+    <tr>
+        <th> Motor Number </th>
+        <th> Turn On Switch </th>
+        <th> Turn Off Switch </th>
+        <th> Current Speed </th>
+        <th> Speed Up </th>
+        <th> Speed Down </th>
+    </tr>
+    
+<% for(var i=0; i<motors.length; i++){ %>
+ 
+<tr>
+    <form action="/" method="POST">
+        <td> Motor <input type="number" name="num" value="<%= i %>"> </td>
+        <td> <input type="submit" name="onb" value="ON" formaction="/on"/> </td>
+        <td> <input type="submit" name="offb" value="OFF" formaction="/off"/> </td>
+        <td> <%= motors[i].speed %> </td>
+        <td> <input type="submit" name="incb" value="+" formaction="/increase"/> </td>
+        <td> <input type="submit" name="decb" value="-" formaction="/decrease"/> </td>
+    </form>    
+</tr>
+    
+<% } %>
+
+</table>
+
+<br>
+    
+    <form action="/addmotor" method="POST">
+        <input type="submit" value="Add Motor" name="addMotor">
+    </form>
+    
+    <br>
+    <br>
+
+    <form action="/gethealth" method="POST">
+        <input type="submit" value="Check Health Status" name="gethealthb">
+    </form>
+    
+<% include partials/footer %>    
+
+

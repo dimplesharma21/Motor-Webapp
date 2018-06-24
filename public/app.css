@@ -1,0 +1,15 @@
+table, th, td {
+        border: 2px solid black;
+        height: 100px;
+        width: 100px;
+        text-align: center;
+
+        }
+      
+body {
+        text-align: center;
+    }
+    
+input[type=number]{
+    width: 50px;
+}

@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+    <table align="center" style="width:80%" >
+    <tr>
+        <th> Motor Number </th>
+        <th> Motor Health </th>
+        <th> Fix issues </th>
+    </tr>
+    
+    
+<% for(var i=0; i<motors.length; i++){ %>
+ 
+<tr>
+    <form action="/" method="POST">
+        
+        <td> Motor <input type="number" name="numb" value="<%= i %>"> </td>
+        
+        <% if(motors[i].speed>10){ %>
+        <td> <input type="submit" name="healthb" value="Health" disabled style="background-color: red"/> </td>
+        <td> <input type="submit" name="fixb" value="Fix Health" formaction="/fix"/> </td>
+        <% } else { %>
+        <td> <input type="submit" name="healthb" value="Health" disabled style="background-color: green"/> </td>
+        <td> <input type="submit" name="fixb" value="Fix Health" formaction="/fix" disabled/> </td>
+        <% } %>
+       
+    </form>    
+</tr>
+    
+<% } %>
+    
+    </table>
+
+    <br>
+
+    <form action="\return">
+        <input type="submit" value="Go Back">
+    </form>
+    
+<% include partials/footer %>
